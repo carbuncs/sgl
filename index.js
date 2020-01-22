@@ -1,18 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    <div>SGL EXAMPLE ML</div>
+<div>SGL EXAMPLE ML</div>
 <button type="button" onclick="init()">Empezar</button>
 <div><canvas id="canvas"></canvas></div>
 <div id="label-container"></div>
-    <script src="/index.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/pose@0.8/dist/teachablemachine-pose.min.js"></script>
 <script type="text/javascript">
     // More API functions here:
@@ -85,7 +75,3 @@
         }
     }
 </script>
-    
-
-</body>
-</html>
