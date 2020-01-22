@@ -5,9 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>SGL</title>
 </head>
-<body><div>Teachable Machine Pose Model</div>
+<body>
+    <div>Sensor Guided Living, press the button Start</div>
     <button type="button" onclick="init()">Start</button>
     <div><canvas id="canvas"></canvas></div>
     <div id="label-container"></div>
@@ -32,7 +33,7 @@
             maxPredictions = model.getTotalClasses();
     
             // Convenience function to setup a webcam
-            const size = 200;
+            const size = 500;
             const flip = true; // whether to flip the webcam
             webcam = new tmPose.Webcam(size, size, flip); // width, height, flip
             await webcam.setup(); // request access to the webcam
@@ -46,6 +47,8 @@
             labelContainer = document.getElementById("label-container");
             for (let i = 0; i < maxPredictions; i++) { // and class labels
                 labelContainer.appendChild(document.createElement("div"));
+
+//console.log(labelContainer);
             }
         }
     
@@ -61,11 +64,16 @@
             const { pose, posenetOutput } = await model.estimatePose(webcam.canvas);
             // Prediction 2: run input through teachable machine classification model
             const prediction = await model.predict(posenetOutput);
+            
     
             for (let i = 0; i < maxPredictions; i++) {
                 const classPrediction =
                     prediction[i].className + ": " + prediction[i].probability.toFixed(2);
                 labelContainer.childNodes[i].innerHTML = classPrediction;
+                //console.log(prediction[i].className);
+                console.log(prediction[i].probability);
+                
+                
             }
     
             // finally draw the poses
